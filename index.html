@@ -9,8 +9,32 @@
         <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
         <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/cfe5f316/dist/aframe-extras.js"></script>
       </head>
+       <style>
+        .arjs-loader {
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: rgba(0, 0, 0, 0.8);
+          z-index: 9999;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .arjs-loader div {
+          text-align: center;
+          font-size: 1.25em;
+          color: white;
+        }
+      </style>
+
       <body>
-       <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;' loading-screen="dotsColor: red; backgroundColor: black">
+        <div class="arjs-loader">
+          <div>Cargando...</div>
+        </div>
+        <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' vr-mode-ui="enabled: false;" >
          
            <a-text value="Prueba texto!"></a-text>
            <a-entity  text="prueba otro texto!; color: #BBB" position="-0.9 0.2 -3" scale="1.5 1.5 1.5"></a-entity>
