@@ -21,7 +21,12 @@
        window.location.href = "index_saves/index_imgTracking_Funciones.html";
        alert("Boton presionado!");
     }
-    var m = document.querySelector("a-marker-camera");
+    var sceneEl = document.querySelector('a-scene');
+    //console.log(sceneEl.querySelector('#redBox'));//por ID
+    var m = sceneEl.querySelector("a-marker-camera");
+
+    var modelo = sceneEl.querySelector('#walker');
+    
     m.addEventListener("markerFound", (e)=>{
        console.log("found");
        alerta();
@@ -101,7 +106,7 @@
         <a-assets>
           <a-asset id="modelo" src="modelos3D/shovel_04.glb"></a-asset>
         </a-assets>
-        <a-entity id="walker" gltf-model="#modelo" position="0 0 0" scale="0.2 0.2 0.2" rotation="-90 0 0" animation-mixer>
+        <a-entity id="walker" visible="false" gltf-model="#modelo" position="0 0 0" scale="0.2 0.2 0.2" rotation="-90 0 0" animation-mixer>
         </a-entity>
 
        <!-- define a camera which will move according to the marker position -->
