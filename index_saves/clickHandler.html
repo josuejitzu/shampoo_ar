@@ -12,22 +12,25 @@
   </head>
 
   <script type="text/javascript">
+
+    const scene = document.querySelector('a-scene');
+    scene.addEventListener('loaded', onSceneLoaded);
+
     function onSceneLoaded() {
       const raycaster = document.querySelector('[ar-raycaster]');
       const cursor = document.querySelector('#cursor');
       raycaster.addEventListener('raycaster-intersection', (event) => {
         cursor.setAttribute('position', event.detail.intersections[0].point);
       });
-      const walker = document.querySelector('#walker');
-        raycaster.addEventListener('click', () => {
-         walker.setAttribute('position', raycaster.components.cursor.intersection.point);
-        });
+   
     }
 
     
-  
-    const scene = document.querySelector('a-scene');
-    scene.addEventListener('loaded', onSceneLoaded);
+    const walker = document.querySelector('#walker');
+    raycaster.addEventListener('click', () => {
+         walker.setAttribute('position', raycaster.components.cursor.intersection.point);
+        });
+    
   </script>
 
   <body style="margin: 0; overflow: hidden;">
@@ -37,7 +40,7 @@
           </a-assets>
           <a-entity id="walker" visible="true"  gltf-model="#modelo" position="0 0 -5" scale="0.1 0.1 0.1" rotation="0 0 0" animation-mixer>
         </a-entity>
-        <a-ring id="cursor" radius-inner="0.1" radius-outer="0.2"  color="teal" position="0 -0.8 -5" rotation="-90 0 0">
+        <a-ring id="cursor" radius-inner="0.03" radius-outer="0.02"  color="teal" position="0 -0.8 -5" rotation="-90 0 0">
         </a-ring>
 
         <a-camera ar-raycaster raycaster cursor="fuse:false"> </a-camera>
