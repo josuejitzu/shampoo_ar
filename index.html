@@ -21,7 +21,7 @@
     }
     function clickBotonFunciones()
     {
-       window.location.href = "index_saves/index_imgTracking_Funciones.html";
+       window.location.href = "index_saves/clickHandler.html";
        alert("Boton presionado!");
     }
     var sceneEl = document.querySelector('a-scene');
@@ -124,10 +124,10 @@
   </style>
 
   <body>
-    <!-- <div class="buttons">
+    <div class="buttons">
       <button class="say-hi-button" onclick="clickBoton()">ImgTracking</button>
       <button class="say-hi-button" onclick="clickBotonFunciones()">Funciones</button>
-    </div> -->
+    </div>
     <!--raycaster="objects: [clickhandler];"-->
     <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' vr-mode-ui="enabled: false;"   >
       <a-text value="Prueba texto!"></a-text>
