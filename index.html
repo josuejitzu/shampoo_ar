@@ -14,16 +14,12 @@
   </head>
 
   <script>
-    function clickBoton()
+    function clickBoton(ruta)
     {
-       window.location.href = "index_saves/index_imgTracking.html";
-       //alert("Boton presionado!");
+       window.location.href = ruta;
+       alert("Boton ruta:" + ruta);
     }
-    function clickBotonFunciones()
-    {
-       window.location.href = "index_saves/clickHandler.html";
-       alert("Boton presionado!");
-    }
+    
     var sceneEl = document.querySelector('a-scene');
     //console.log(sceneEl.querySelector('#redBox'));//por ID
     var m = sceneEl.querySelector("a-marker-camera");
@@ -125,8 +121,9 @@
 
   <body>
     <div class="buttons">
-      <button class="say-hi-button" onclick="clickBoton()">ImgTracking</button>
-      <button class="say-hi-button" onclick="clickBotonFunciones()">Funciones</button>
+      <button class="say-hi-button" onclick="clickBoton('index_saves/index_imgTracking.html')">ImgTracking</button>
+      <button class="say-hi-button" onclick="clickBoton('index_saves/clickHandler.html')">ClickHandler</button>
+      <button class="say-hi-button" onclick="clickBoton('index_saves/clickHandler.html')">Funciones_Pattern</button>
     </div>
     <!--raycaster="objects: [clickhandler];"-->
     <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' vr-mode-ui="enabled: false;"   >

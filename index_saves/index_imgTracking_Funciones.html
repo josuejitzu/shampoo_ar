@@ -13,10 +13,10 @@
   <script>
     function clickBoton()
     {
-       window.location.href = "index_saves/index_imgTracking.html";
+      // window.location.href = "index_saves/index_imgTracking.html";
        alert("Boton presionado!");
-    }
-    AFRAME.registerComponent('registerevents', {
+
+       AFRAME.registerComponent('registerevents', {
 		init: function () {
 			var marker = this.el;
 
@@ -36,6 +36,8 @@
 			});
 		}
 	});
+    }
+   
   </script>
 
   <!-- Estilos css-->
