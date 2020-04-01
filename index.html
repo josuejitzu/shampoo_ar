@@ -26,48 +26,59 @@
     var m = sceneEl.querySelector("a-marker-camera");
 
     var modelo = sceneEl.querySelector('#walker');
-    
-    m.addEventListener("markerFound", (e)=>{
-       console.log("found");
-       alerta();
 
-      });
-
-    m.addEventListener("markerLost", (e)=>{
-         console.log("lost");
-       alert("Marcador encontrado!");
-
+    AFRAME.registerComponent("clickhandler", {
+      init: function() {
+        // we add the click event listener to any instance of this component
+        
+        this.el.addEventListener("click", () => {
+          alert("Clicked!");
         });
-   function alerta()
-        {
-         alert("Marcador encontrado!");
-
-        }
-        AFRAME.registerComponent('llamadaEvento',
-        {
-          schema:
-          {
-            texto:{default:"hola"}
-          },
-          init:function()
-          {
-            var elemento = this.elemento;
-            elemento.addEventListener('markerFound',function(){
-              alert(texto);
+      }
+    });
 
 
-            });
-          }
+  //   m.addEventListener("markerFound", (e)=>{
+  //      console.log("found");
+  //      alerta();
+
+  //     });
+
+  //   m.addEventListener("markerLost", (e)=>{
+  //        console.log("lost");
+  //      alert("Marcador encontrado!");
+
+  //       });
+  //  function alerta()
+  //       {
+  //        alert("Marcador encontrado!");
+
+  //       }
+  //       AFRAME.registerComponent('llamadaEvento',
+  //       {
+  //         schema:
+  //         {
+  //           texto:{default:"hola"}
+  //         },
+  //         init:function()
+  //         {
+  //           var elemento = this.elemento;
+  //           elemento.addEventListener('markerFound',function(){
+  //             alert(texto);
+
+
+  //           });
+  //         }
 
           
-        }
+  //       }
 
 
-        );
+  //       );
 	
   </script>
 
-  <!-- Estilos css-->
+  <!-- Estilos css--> 
   <style>
     .buttons {
       position: absolute;
@@ -98,7 +109,7 @@
       <button class="say-hi-button" onclick="clickBotonFunciones()">Funciones</button>
     </div>
  
-    <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' vr-mode-ui="enabled: false;" >
+    <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' vr-mode-ui="enabled: false;"  raycaster="objects: [clickhandler];" >
      
        <a-text value="Prueba texto!"></a-text>
        <a-entity  text="prueba otro texto!; color: #BBB" position="-0.9 0.2 -3" scale="1.5 1.5 1.5"></a-entity>
@@ -106,7 +117,7 @@
         <a-assets>
           <a-asset id="modelo" src="modelos3D/shovel_04.glb"></a-asset>
         </a-assets>
-        <a-entity id="walker" visible="false" gltf-model="#modelo" position="0 0 0" scale="0.2 0.2 0.2" rotation="-90 0 0" animation-mixer>
+        <a-entity id="walker" visible="true" clickhandler gltf-model="#modelo" position="0 0 0" scale="0.2 0.2 0.2" rotation="-90 0 0" animation-mixer>
         </a-entity>
 
        <!-- define a camera which will move according to the marker position -->
