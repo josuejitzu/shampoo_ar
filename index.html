@@ -21,6 +21,26 @@
        window.location.href = "index_saves/index_imgTracking_Funciones.html";
        alert("Boton presionado!");
     }
+    AFRAME.registerComponent('registerevents', {
+		init: function () {
+			var marker = this.el;
+
+			marker.addEventListener('markerFound', function() {
+				var markerId = marker.id;
+				console.log('markerFound', markerId);
+                alert("Marcador encontrado");
+				// TODO: Add your own code here to react to the marker being found.
+			});
+
+			marker.addEventListener('markerLost', function() {
+				var markerId = marker.id;
+				console.log('markerLost', markerId);
+                alert("Marcador perdido");
+
+				// TODO: Add your own code here to react to the marker being lost.
+			});
+		}
+	});
   </script>
 
   <!-- Estilos css-->
