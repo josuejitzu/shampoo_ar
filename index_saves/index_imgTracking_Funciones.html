@@ -21,16 +21,32 @@
     }
 
 
-    var mar = document.querySelector('#marcador');
+    const mar = document.querySelector('#marcador');
+    const modelo = document.querySelector('#walker');
 
-    mar.addEventListener('markerFound',(e)=>{
-        alert("Marcador encontrado"+mar.id);
 
-    });
-    mar.addEventListener('markerLost',(e)=>{
-        alert("Marcador perdido"+mar.id);
+        mar.addEventListener('markerFound',(e)=>{
+            modelo.setAttribute('visible',true);
 
-    });
+            alert("Marcador encontrado"+mar.id);
+
+        });
+        mar.addEventListener('markerLost',(e)=>{
+            modelo.setAttribute('visible',false);
+            alert("Marcador perdido"+mar.id);
+
+        });
+
+    // var mar = document.querySelector('#marcador');
+
+    // mar.addEventListener('markerFound',(e)=>{
+    //     alert("Marcador encontrado"+mar.id);
+
+    // });
+    // mar.addEventListener('markerLost',(e)=>{
+    //     alert("Marcador perdido"+mar.id);
+
+    // });
 
    /*  AFRAME.registerComponent('registerevents', {
 		init: function () {
@@ -50,7 +66,7 @@
 
 			marker.addEventListener('markerLost', function() {
 				var markerId = marker.id;
-                marker.
+                
 				console.log('markerLost', markerId);
                 alert("Marcador perdido"+markerId);
 
@@ -100,7 +116,7 @@
         <a-assets>
           <a-asset id="modelo" src="../modelos3D/shovel_04.glb"></a-asset>
         </a-assets>
-        <a-entity id="walker" gltf-model="#modelo" position="0 0 0" scale="0.2 0.2 0.2" rotation="-90 0 0" animation-mixer>
+        <a-entity id="walker"  gltf-model="#modelo" position="0 0 0" scale="0.2 0.2 0.2" rotation="-90 0 0" animation-mixer>
         </a-entity>
 
        <!-- define a camera which will move according to the marker position -->
