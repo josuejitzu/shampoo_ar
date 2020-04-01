@@ -23,7 +23,10 @@
 		init: function () {
 			var marker = this.el;
 
-			marker.addEventListener('markerFound', function() {
+		
+		},
+        tick: function() {
+            marker.addEventListener('markerFound', function() {
 				var markerId = marker.id;
 				console.log('markerFound', markerId);
                 alert("Marcador encontrado"+markerId);
@@ -38,7 +41,8 @@
 
 				// TODO: Add your own code here to react to the marker being lost.
 			});
-		}
+
+        }
 	});
    
   </script>
