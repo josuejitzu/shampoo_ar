@@ -1,0 +1,89 @@
+<!doctype HTML>
+<html>
+   <head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    
+    <!-- add this script in order to load a large set of 3D model extensions-->
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/cfe5f316/dist/aframe-extras.js"></script>
+  </head>
+
+  <script>
+    function clickBoton()
+    {
+       window.location.href = "index_saves/index_imgTracking.html";
+       alert("Boton presionado!");
+    }
+    AFRAME.registerComponent('registerevents', {
+		init: function () {
+			var marker = this.el;
+
+			marker.addEventListener('markerFound', function() {
+				var markerId = marker.id;
+				console.log('markerFound', markerId);
+                alert("Marcador encontrado");
+				// TODO: Add your own code here to react to the marker being found.
+			});
+
+			marker.addEventListener('markerLost', function() {
+				var markerId = marker.id;
+				console.log('markerLost', markerId);
+                alert("Marcador perdido");
+
+				// TODO: Add your own code here to react to the marker being lost.
+			});
+		}
+	});
+  </script>
+
+  <!-- Estilos css-->
+  <style>
+    .buttons {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .say-hi-button {
+      padding: 0.25em;
+      border-radius: 4px;
+      border: none;
+      background: white;
+      color: black;
+      width: 4em;
+      height: 2em;
+    }
+  </style>
+
+  <body>
+    <div class="buttons">
+      <button class="say-hi-button" onclick="clickBoton()">ImgTracking</button>
+    </div>
+ 
+    <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' vr-mode-ui="enabled: false;" >
+     
+       <a-text value="Prueba texto!"></a-text>
+       <a-entity  text="prueba otro texto!; color: #BBB" position="-0.9 0.2 -3" scale="1.5 1.5 1.5"></a-entity>
+       <!-- create your content here. just a box for now -->
+        <a-assets>
+          <a-asset id="modelo" src="modelos3D/shovel_04.glb"></a-asset>
+        </a-assets>
+        <a-entity id="walker" gltf-model="#modelo" position="0 0 0" scale="0.2 0.2 0.2" rotation="-90 0 0" animation-mixer>
+        </a-entity>
+
+       <!-- define a camera which will move according to the marker position -->
+        <a-marker-camera type='pattern' url='imgs/pattern-logo_qr.patt'></a-marker-camera>
+   </a-scene>
+    <div style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden">
+         <div id="htmlElement" style="background: #F8F8F8; color: #333; font-size: 48px">Pantene AR</div>
+    </div>
+  </body>
+</html>

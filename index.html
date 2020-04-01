@@ -14,6 +14,11 @@
     function clickBoton()
     {
        window.location.href = "index_saves/index_imgTracking.html";
+       //alert("Boton presionado!");
+    }
+    function clickBotonFunciones()
+    {
+       window.location.href = "index_saves/index_imgTracking:Funciones.html";
        alert("Boton presionado!");
     }
   </script>
@@ -46,6 +51,7 @@
   <body>
     <div class="buttons">
       <button class="say-hi-button" onclick="clickBoton()">ImgTracking</button>
+      <button class="say-hi-button" onclick="clickBotonFunciones()">Funciones</button>
     </div>
  
     <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' vr-mode-ui="enabled: false;" >
