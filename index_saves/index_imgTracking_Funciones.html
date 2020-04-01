@@ -16,7 +16,9 @@
       // window.location.href = "index_saves/index_imgTracking.html";
        alert("Boton presionado!");
 
-       AFRAME.registerComponent('registerevents', {
+     
+    }
+    AFRAME.registerComponent('registerevents', {
 		init: function () {
 			var marker = this.el;
 
@@ -36,7 +38,6 @@
 			});
 		}
 	});
-    }
    
   </script>
 
@@ -82,7 +83,7 @@
         </a-entity>
 
        <!-- define a camera which will move according to the marker position -->
-        <a-marker-camera type='pattern' url='../imgs/pattern-logo_qr.patt'></a-marker-camera>
+        <a-marker-camera registerevents type='pattern' url='../imgs/pattern-logo_qr.patt'></a-marker-camera>
    </a-scene>
     <div style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden">
          <div id="htmlElement" style="background: #F8F8F8; color: #333; font-size: 48px">Pantene AR</div>
