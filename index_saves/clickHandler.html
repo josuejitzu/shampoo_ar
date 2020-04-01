@@ -19,6 +19,7 @@
     
 
     function onSceneLoaded() {
+      alert("Escena cargada");
 
       const raycaster = document.querySelector('[ar-raycaster]');
       const cursor = document.querySelector('#cursor');
@@ -33,7 +34,7 @@
          walker.setAttribute('position', raycaster.components.cursor.intersection.point);
         });
 
-      alert("Escena cargada");
+     
    
     }
 
