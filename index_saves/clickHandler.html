@@ -14,7 +14,16 @@
   <script type="text/javascript">
 
     const scene = document.querySelector('a-scene');
-    scene.addEventListener('loaded', onSceneLoaded);
+
+    if (scene.hasLoaded) {
+        onSceneLoaded();
+    } else {
+        scene.addEventListener('loaded', onSceneLoaded);
+    }
+
+
+
+    
 
     
 
@@ -47,7 +56,7 @@
   </script>
 
   <body style="margin: 0; overflow: hidden;">
-    <a-scene ar>
+    <a-scene >
        
           <a-asset id="modelo" src="../modelos3D/shovel_04.glb"></a-asset>
           </a-assets>
