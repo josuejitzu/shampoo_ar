@@ -22,10 +22,11 @@
     AFRAME.registerComponent('registerevents', {
 		init: function () {
 			var marker = this.el;
+            this.tick = AFRAME.utils.throttleTick(this.tick, 500, this);
 
 		
 		},
-        tick: function() {
+        tick: function(t,dt) {
             marker.addEventListener('markerFound', function() {
 				var markerId = marker.id;
 				console.log('markerFound', markerId);
