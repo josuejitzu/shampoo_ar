@@ -23,13 +23,16 @@
 
       const raycaster = document.querySelector('[ar-raycaster]');
       const cursor = document.querySelector('#cursor');
+      const walker = document.querySelector('#walker');
+
       raycaster.addEventListener('raycaster-intersection', (event) => {
         cursor.setAttribute('position', event.detail.intersections[0].point);
-
+        walker.setAttribute('scale', '2 2 2');
+        
      
       });
 
-      const walker = document.querySelector('#walker');
+    
       raycaster.addEventListener('click', () => {
          walker.setAttribute('position', raycaster.components.cursor.intersection.point);
         });
