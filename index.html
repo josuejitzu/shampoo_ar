@@ -51,7 +51,7 @@
               const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
               if (aEntity && intersectedElement === aEntity) {
                   const scale = aEntity.getAttribute('scale');
-                  Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
+                  Object.keys(scale).forEach((key) => scale[key] = scale[key] + 10);
                   aEntity.setAttribute('scale', scale);
               }
           });
@@ -128,15 +128,15 @@
       <button class="say-hi-button" onclick="clickBoton()">ImgTracking</button>
       <button class="say-hi-button" onclick="clickBotonFunciones()">Funciones</button>
     </div> -->
- 
-    <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' vr-mode-ui="enabled: false;"  raycaster="objects: [clickhandler];" >
+    <!--raycaster="objects: [clickhandler];"-->
+    <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' vr-mode-ui="enabled: false;"   >
       <a-text value="Prueba texto!"></a-text>
       <a-entity  text="prueba otro texto!; color: #BBB" position="-0.9 0.2 -3" scale="1.5 1.5 1.5"></a-entity>
       <!-- create your content here. just a box for now -->
        <a-assets>
          <a-asset id="modelo" src="modelos3D/shovel_04.glb"></a-asset>
        </a-assets>
-       <a-entity id="walker" visible="true" clickhandler gltf-model="#modelo" position="0 0 0" scale="0.2 0.2 0.2" rotation="-90 0 0" animation-mixer>
+       <a-entity id="walker" visible="true"  gltf-model="#modelo" position="0 0 0" scale="0.2 0.2 0.2" rotation="-90 0 0" animation-mixer>
        </a-entity>
       
       
