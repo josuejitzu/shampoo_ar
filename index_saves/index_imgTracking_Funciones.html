@@ -32,6 +32,7 @@
 
 			marker.addEventListener('markerLost', function() {
 				var markerId = marker.id;
+                marker.
 				console.log('markerLost', markerId);
                 alert("Marcador perdido"+markerId);
 
@@ -80,11 +81,13 @@
         <a-assets>
           <a-asset id="modelo" src="../modelos3D/shovel_04.glb"></a-asset>
         </a-assets>
-        <a-entity id="walker" gltf-model="#modelo" position="0 0 0" scale="0.2 0.2 0.2" rotation="-90 0 0" animation-mixer>
-        </a-entity>
+     
 
        <!-- define a camera which will move according to the marker position -->
-        <a-marker-camera registerevents type='pattern' url='../imgs/pattern-logo_qr.patt'></a-marker-camera>
+        <a-marker-camera registerevents type='pattern' url='../imgs/pattern-logo_qr.patt'>
+            <a-entity id="walker" gltf-model="#modelo" position="0 0 0" scale="0.2 0.2 0.2" rotation="-90 0 0" animation-mixer>
+            </a-entity>
+        </a-marker-camera>
    </a-scene>
     <div style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden">
          <div id="htmlElement" style="background: #F8F8F8; color: #333; font-size: 48px">Pantene AR</div>
