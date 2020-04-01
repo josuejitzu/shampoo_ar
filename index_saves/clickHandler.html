@@ -21,6 +21,8 @@
       const cursor = document.querySelector('#cursor');
       raycaster.addEventListener('raycaster-intersection', (event) => {
         cursor.setAttribute('position', event.detail.intersections[0].point);
+
+        alert("Escena cargada");
       });
    
     }
