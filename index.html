@@ -54,44 +54,7 @@
       }});
 
 
-  //   m.addEventListener("markerFound", (e)=>{
-  //      console.log("found");
-  //      alerta();
-
-  //     });
-
-  //   m.addEventListener("markerLost", (e)=>{
-  //        console.log("lost");
-  //      alert("Marcador encontrado!");
-
-  //       });
-  //  function alerta()
-  //       {
-  //        alert("Marcador encontrado!");
-
-  //       }
-  //       AFRAME.registerComponent('llamadaEvento',
-  //       {
-  //         schema:
-  //         {
-  //           texto:{default:"hola"}
-  //         },
-  //         init:function()
-  //         {
-  //           var elemento = this.elemento;s
-  //           elemento.addEventListener('markerFound',function(){
-  //             alert(texto);
-
-
-  //           });
-  //         }
-
-          
-  //       }
-
-
-  //       );
-	
+ 
   </script>
 
   <!-- Estilos css--> 
@@ -125,6 +88,7 @@
       <button class="say-hi-button" onclick="clickBoton('index_saves/clickHandler.html')">ClickHandler</button>
       <button class="say-hi-button" onclick="clickBoton('index_saves/index_imgTracking_Funciones.html')">Funciones_Pattern</button>
     </div>
+    
     <!--raycaster="objects: [clickhandler];"-->
     <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' vr-mode-ui="enabled: false;"   >
       <a-text value="Prueba texto!"></a-text>

@@ -23,10 +23,11 @@
 
     const mar = document.querySelector('#marcador');
     const modelo = document.querySelector('#walker');
-
+    var marco = document.getElementById("marco");
 
         mar.addEventListener('markerFound',(e)=>{
             modelo.setAttribute('visible',true);
+            marco.style.display = "none";
 
             alert("Marcador encontrado" + mar.id);
 
@@ -34,6 +35,8 @@
         mar.addEventListener('markerLost',(e)=>{
             modelo.setAttribute('visible',false);
             alert("Marcador perdido" + mar.id);
+            marco.style.display = "block";
+
 
         });
 
@@ -91,6 +94,18 @@
 
   <!-- Estilos css-->
   <style>
+     .marco-busqueda {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
     .buttons {
       position: absolute;
       bottom: 0;
@@ -115,6 +130,9 @@
   </style>
 
   <body>
+    <div class="marco-busqueda">
+      <img id="marco" src="../imgs/marco_busqueda.png">
+    </div>
     <div class="buttons">
       <button class="say-hi-button" onclick="clickBoton()">ImgTracking</button>
     </div>
