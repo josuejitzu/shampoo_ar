@@ -23,11 +23,11 @@
 
     const mar = document.querySelector('#marcador');
     const modelo = document.querySelector('#walker');
-    var marco = document.getElementById("marco");
+    const marco = document.querySelector('.marco-busqueda');
 
         mar.addEventListener('markerFound',(e)=>{
             modelo.setAttribute('visible',true);
-            marco.style.display = 'none';
+            marco.style.visibility = 'hidden';
 
             alert("Marcador encontrado" + mar.id);
 
@@ -35,7 +35,7 @@
         mar.addEventListener('markerLost',(e)=>{
             modelo.setAttribute('visible',false);
             alert("Marcador perdido" + mar.id);
-            marco.style.display = 'block';
+            marco.style.visibility = 'visible';
 
 
         });
