@@ -27,7 +27,7 @@
 
         mar.addEventListener('markerFound',(e)=>{
             modelo.setAttribute('visible',true);
-            marco.style.display = "none";
+            marco.style.display = 'none';
 
             alert("Marcador encontrado" + mar.id);
 
@@ -35,7 +35,7 @@
         mar.addEventListener('markerLost',(e)=>{
             modelo.setAttribute('visible',false);
             alert("Marcador perdido" + mar.id);
-            marco.style.display = "block";
+            marco.style.display = 'block';
 
 
         });
@@ -130,8 +130,8 @@
   </style>
 
   <body>
-    <div class="marco-busqueda">
-      <img id="marco" src="../imgs/marco_busqueda.png">
+    <div id="marco" class="marco-busqueda">
+      <img  src="../imgs/marco_busqueda.png" height="256" width="256">
     </div>
     <div class="buttons">
       <button class="say-hi-button" onclick="clickBoton()">ImgTracking</button>
