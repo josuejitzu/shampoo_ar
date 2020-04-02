@@ -25,17 +25,17 @@
     const modelo = document.querySelector('#walker');
 
 
-        // mar.addEventListener('markerFound',(e)=>{
-        //     modelo.setAttribute('visible',true);
+        mar.addEventListener('markerFound',(e)=>{
+            modelo.setAttribute('visible',true);
 
-        //     alert("Marcador encontrado" + mar.id);
+            alert("Marcador encontrado" + mar.id);
 
-        // });
-        // mar.addEventListener('markerLost',(e)=>{
-        //     modelo.setAttribute('visible',false);
-        //     alert("Marcador perdido" + mar.id);
+        });
+        mar.addEventListener('markerLost',(e)=>{
+            modelo.setAttribute('visible',false);
+            alert("Marcador perdido" + mar.id);
 
-        // });
+        });
 
     // var mar = document.querySelector('#marcador');
 
@@ -65,7 +65,7 @@
 				// TODO: Add your own code here to react to the marker being found.
 			});
 
-			this.el.addEventListener('markerLost', function() {
+			this.mar.addEventListener('markerLost', function() {
 				var markerId = this.mar.id;
                 
 				console.log('markerLost', markerId);
@@ -134,6 +134,8 @@
         <a-marker registerevents emitevents="true" id="marcador" type='pattern' url='../imgs/pattern-logo_qr.patt'>
            
         </a-marker>
+        <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+        <a-entity camera></a-entity>
    </a-scene>
     <div style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden">
          <div id="htmlElement" style="background: #F8F8F8; color: #333; font-size: 48px">Pantene AR</div>
