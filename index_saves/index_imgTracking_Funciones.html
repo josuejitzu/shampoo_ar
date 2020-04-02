@@ -25,17 +25,17 @@
     const modelo = document.querySelector('#walker');
 
 
-        mar.addEventListener('markerFound',(e)=>{
-            modelo.setAttribute('visible',true);
+        // mar.addEventListener('markerFound',(e)=>{
+        //     modelo.setAttribute('visible',true);
 
-            alert("Marcador encontrado"+mar.id);
+        //     alert("Marcador encontrado" + mar.id);
 
-        });
-        mar.addEventListener('markerLost',(e)=>{
-            modelo.setAttribute('visible',false);
-            alert("Marcador perdido"+mar.id);
+        // });
+        // mar.addEventListener('markerLost',(e)=>{
+        //     modelo.setAttribute('visible',false);
+        //     alert("Marcador perdido" + mar.id);
 
-        });
+        // });
 
     // var mar = document.querySelector('#marcador');
 
@@ -48,24 +48,25 @@
 
     // });
 
-   /*  AFRAME.registerComponent('registerevents', {
+    AFRAME.registerComponent('registerevents', {
 		init: function () {
-			var marker = this.el;
+			var marker = this.mar;
            // this.tick = AFRAME.utils.throttleTick(this.tick, 500, this);
          
 
 		
 		},
         tick: function() {
-            marker.addEventListener('markerFound', function() {
-				var markerId = marker.id;
+            //Esto si funciona si lo ponermos en la init function
+            this.mar.addEventListener('markerFound', function() {
+				var markerId = this.mar.id;
 				console.log('markerFound', markerId);
                 alert("Marcador encontrado"+markerId);
 				// TODO: Add your own code here to react to the marker being found.
 			});
 
-			marker.addEventListener('markerLost', function() {
-				var markerId = marker.id;
+			this.el.addEventListener('markerLost', function() {
+				var markerId = this.mar.id;
                 
 				console.log('markerLost', markerId);
                 alert("Marcador perdido"+markerId);
@@ -74,7 +75,7 @@
 			});
 
         }
-	}); */
+	});
    
   </script>
 
@@ -118,9 +119,9 @@
         </a-assets>
         <a-entity id="walker"  gltf-model="#modelo" position="0 0 0" scale="0.2 0.2 0.2" rotation="-90 0 0" animation-mixer>
         </a-entity>
-
+            
        <!-- define a camera which will move according to the marker position -->
-        <a-marker-camera  id="marcador" type='pattern' url='../imgs/pattern-logo_qr.patt'>
+        <a-marker-camera registerevents emitevents="true" id="marcador" type='pattern' url='../imgs/pattern-logo_qr.patt'>
            
         </a-marker-camera>
    </a-scene>
