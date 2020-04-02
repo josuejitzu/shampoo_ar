@@ -136,6 +136,14 @@
     <div class="buttons">
       <button class="say-hi-button" onclick="clickBoton()">ImgTracking</button>
     </div>
+    <script>
+      const marcoBusqueda = document.querySelector('#marco');
+
+      marcoBusqueda.addEventListener('markerFound',(e)=>{
+          marcoBusqueda.style.display = 'none';
+          marcoBusqueda.style.visibility = 'hidden';
+      });
+    </script>
  
     <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' vr-mode-ui="enabled: false;" >
      
