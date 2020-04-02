@@ -2,7 +2,7 @@
 <html>
    <head>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    
+    <!--IMPORTANTISIMO: La libreria de dev te permite tener mas opciones incluida los eventos de markerFound y markerLost-->
     <!-- <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script> -->
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
     
@@ -48,34 +48,34 @@
 
     // });
 
-    AFRAME.registerComponent('registerevents', {
-		init: function () {
-			var marker = this.mar;
-           // this.tick = AFRAME.utils.throttleTick(this.tick, 500, this);
+    // AFRAME.registerComponent('registerevents', {
+	// 	init: function () {
+	// 		var marker = this.mar;
+    //        // this.tick = AFRAME.utils.throttleTick(this.tick, 500, this);
          
 
 		
-		},
-        tick: function() {
-            //Esto si funciona si lo ponermos en la init function
-            this.mar.addEventListener('markerFound', function() {
-				var markerId = this.mar.id;
-				console.log('markerFound', markerId);
-                alert("Marcador encontrado"+markerId);
-				// TODO: Add your own code here to react to the marker being found.
-			});
+	// 	},
+    //     tick: function() {
+    //         //Esto si funciona si lo ponermos en la init function
+    //         this.mar.addEventListener('markerFound', function() {
+	// 			var markerId = this.mar.id;
+	// 			console.log('markerFound', markerId);
+    //             alert("Marcador encontrado"+markerId);
+	// 			// TODO: Add your own code here to react to the marker being found.
+	// 		});
 
-			this.mar.addEventListener('markerLost', function() {
-				var markerId = this.mar.id;
+	// 		this.mar.addEventListener('markerLost', function() {
+	// 			var markerId = this.mar.id;
                 
-				console.log('markerLost', markerId);
-                alert("Marcador perdido"+markerId);
+	// 			console.log('markerLost', markerId);
+    //             alert("Marcador perdido"+markerId);
 
-				// TODO: Add your own code here to react to the marker being lost.
-			});
+	// 			// TODO: Add your own code here to react to the marker being lost.
+	// 		});
 
-        }
-	});
+    //     }
+	// });
 
     // AFRAME.registerComponent('markerhandler', {
     //     tick:function() {
@@ -129,7 +129,9 @@
         </a-assets>
         
        <!-- define a camera which will move according to the marker position -->
-        <a-marker registerevents emitevents="true" id="marcador" type='pattern' url='../imgs/pattern-logo_qr.patt'>
+       <!--IMPOTANTISIMO: <a-marker-camera> no genera eventos o no sabemos como, pero <a-marker> si,
+         pero necesita un <a-entity-camera> porque si no no renderea nada-->
+        <a-marker  emitevents="true" id="marcador" type='pattern' url='../imgs/pattern-logo_qr.patt'>
             <a-entity id="walker"  gltf-model="#modelo" position="0 0 0" scale="0.1 0.1 0.1" rotation="-90 0 0" animation-mixer>
             </a-entity>
                 
