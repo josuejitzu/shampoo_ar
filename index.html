@@ -14,32 +14,114 @@
   </head>
 
   <script>
+     //const mar = document.querySelector('#marcador');
+   
+
+    window.onload = function() 
+    {
+      document.getElementById("testButton").addEventListener("click", function() {
+          // here you can change also a-scene or a-entity properties, like
+          // changing your 3D model source, size, position and so on
+          // or you can just open links, trigger actions...
+          alert("Hi there!");
+        });
+
+        document.getElementById("marcador").addEventListener("markerFound",(e)=>{
+              //alert("Marcador encontrado" );
+
+              
+              document.getElementById("marcoImagen").style.visibility = 'hidden';
+              document.getElementById("walker").setAttribute("visble",true);
+              //document.getElementById("walker").setAttribute('animation-mixer', {clip: '*', loop: 'once'});//si fucniona per hay que checar el nombre del clip
+
+
+
+        });
+        document.getElementById("marcador").addEventListener("markerLost",(e)=>{
+            // alert("Marcador perdido" );
+
+              
+              document.getElementById("marcoImagen").style.visibility = 'visible';
+              document.getElementById("walker").setAttribute("visble",false);
+         
+
+
+
+        });
+        
+
+        const mar = document.getElementById('marcador');
+        const modelo = document.querySelector('#walker');
+        const marco = document.querySelector('.marco-busqueda');
+
+
+    };
+
+
+
+
+
+
+
     function clickBoton(ruta)
     {
        window.location.href = ruta;
        alert("Boton ruta:" + ruta);
     }
-    
-    const mar = document.querySelector('#marcador');
-    const modelo = document.querySelector('#walker');
-    const marco = document.querySelector('.marco-busqueda');
+    function quitarMarcador()
+    {
+      //marco.style.visibility = 'hidden';
+      alert("Se quito marco");
+      //document.getElementById("marco").style.backgroundColor = 'transparent';
+      document.getElementById("marcoImagen").style.visibility = 'hidden';
 
-        mar.addEventListener('markerFound',(e)=>{
+    }
+    function aparecerMarcador()
+    {
+      //marco.style.visibility = 'hidden';
+      alert("Se aparece marco");
+      //document.getElementById("marco").style.backgroundColor = 'transparent';
+      document.getElementById("marcoImagen").style.visibility = 'visible';
+
+    }
+    
+    
+   
+
+    mar.addEventListener('markerFound',(e)=>{
+         alert("Marcador encontrado" + mar.id);
+
+            quitarMarcador();
             modelo.setAttribute('visible',true);
-            marco.style.visibility = 'hidden';
+            document.getElementById("marcoImagen").style.visibility = 'hidden';
+          
+            
 
             modelo.setAttribute('animation-mixer', {clip: '*', loop: 'once'});
 
-            alert("Marcador encontrado" + mar.id);
 
         });
-        mar.addEventListener('markerLost',(e)=>{
+     mar.addEventListener('markerLost',(e)=>{
+
+
+            aparecerMarcador();
             modelo.setAttribute('visible',false);
+
             alert("Marcador perdido" + mar.id);
-            marco.style.visibility = 'visible';
+            document.getElementById("marcoImagen").style.visibility = 'visible';
 
 
         });
+
+
+     AFRAME.registerComponent("clickhandler", {
+       init: function() {
+        // we add the click event listener to any instance of this component
+           this.el.addEventListener("click", () => {
+          alert("Clicked!");
+         });
+       }
+    });
  
   </script>
 
@@ -51,7 +133,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.0);
         z-index: 8;
         display: flex;
         justify-content: center;
@@ -82,22 +164,17 @@
 
   <body>
     <div id="marco" class="marco-busqueda">
-      <img  src="imgs/marco_busqueda.png" height="256" width="256">
+      <img  id="marcoImagen" src="imgs/marco_busqueda.png" height="256" width="256">
     </div>
     <div class="buttons">
-      <button class="say-hi-button" onclick="clickBoton('index_saves/index_imgTracking.html')">ImgTracking</button>
+      <!-- <button class="say-hi-button" onclick="clickBoton('index_saves/index_imgTracking.html')">ImgTracking</button>
       <button class="say-hi-button" onclick="clickBoton('index_saves/clickHandler.html')">ClickHandler</button>
-      <button class="say-hi-button" onclick="clickBoton('index_saves/index_imgTracking_Funciones.html')">Funciones_Pattern</button>
+      <button class="say-hi-button" onclick="clickBoton('index_saves/index_imgTracking_Funciones.html')">Funciones_Pattern</button> -->
+      <button id="testButton" class="say-hi-button" >Quitar Marco</button>
+      <button class="say-hi-button" >Aparecer Marco</button>
     </div>
    
-    <script>
-      const marcoBusqueda = document.querySelector('#marco');
-
-      marcoBusqueda.addEventListener('markerFound',(e)=>{
-          marcoBusqueda.style.display = 'none';
-          marcoBusqueda.style.visibility = 'hidden';
-      });
-    </script>
+  
  
     <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' vr-mode-ui="enabled: false;" >
      
@@ -113,7 +190,7 @@
          pero necesita un <a-entity-camera> porque si no no renderea nada-->
         <a-marker  emitevents="true" id="marcador" type='pattern' url='imgs/pattern-logo_qr.patt'>
           
-            <a-entity id="walker"  gltf-model="#modelo" position="0 0 0" scale="0.02 0.02 0.02" rotation="0 0 0" animation-mixer>
+            <a-entity  id="walker"  gltf-model="#modelo" position="0 0 0" scale="0.02 0.02 0.02" rotation="0 0 0" animation-mixer>
             </a-entity>
                 
         </a-marker>
