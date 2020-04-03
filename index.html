@@ -51,7 +51,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        background-color: rgba(0, 0, 0, 0.0);
+        background-color: rgba(0, 0, 0, 0.1);
         z-index: 8;
         display: flex;
         justify-content: center;
@@ -75,7 +75,7 @@
       border: none;
       background: white;
       color: black;
-      width: 6em;
+      width: 10em;
       height: 3em;
     }
   </style>
@@ -112,6 +112,7 @@
        <!--IMPOTANTISIMO: <a-marker-camera> no genera eventos o no sabemos como, pero <a-marker> si,
          pero necesita un <a-entity-camera> porque si no no renderea nada-->
         <a-marker  emitevents="true" id="marcador" type='pattern' url='imgs/pattern-logo_qr.patt'>
+          
             <a-entity id="walker"  gltf-model="#modelo" position="0 0 0" scale="0.02 0.02 0.02" rotation="0 0 0" animation-mixer>
             </a-entity>
                 
