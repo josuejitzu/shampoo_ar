@@ -50,16 +50,8 @@
         });
         
 
-        const mar = document.getElementById('marcador');
-        const modelo = document.querySelector('#walker');
-        const marco = document.querySelector('.marco-busqueda');
-
 
     };
-
-
-
-
 
 
 
@@ -86,42 +78,6 @@
     }
     
     
-   
-
-    mar.addEventListener('markerFound',(e)=>{
-         alert("Marcador encontrado" + mar.id);
-
-            quitarMarcador();
-            modelo.setAttribute('visible',true);
-            document.getElementById("marcoImagen").style.visibility = 'hidden';
-          
-            
-
-            modelo.setAttribute('animation-mixer', {clip: '*', loop: 'once'});
-
-
-        });
-     mar.addEventListener('markerLost',(e)=>{
-
-
-            aparecerMarcador();
-            modelo.setAttribute('visible',false);
-
-            alert("Marcador perdido" + mar.id);
-            document.getElementById("marcoImagen").style.visibility = 'visible';
-
-
-        });
-
-
-     AFRAME.registerComponent("clickhandler", {
-       init: function() {
-        // we add the click event listener to any instance of this component
-           this.el.addEventListener("click", () => {
-          alert("Clicked!");
-         });
-       }
-    });
  
   </script>
 
