@@ -1,24 +1,26 @@
 <!doctype HTML>
 <html>
    <head>
+
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <!--lo cambiamos para dev -->
     <!-- <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script> -->
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
+
     <!-- add this script in order to load a large set of 3D model extensions-->
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/cfe5f316/dist/aframe-extras.js"></script>
-     <!-- import ssssevents.js script -->
-     <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
+
+    <!-- import ssssevents.js script -->
+    <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
  
   </head>
 
   <script>
-     //const mar = document.querySelector('#marcador');
    
-
     window.onload = function() 
     {
+
       document.getElementById("testButton").addEventListener("click", function() {
           // here you can change also a-scene or a-entity properties, like
           // changing your 3D model source, size, position and so on
@@ -45,14 +47,10 @@
               document.getElementById("walker").setAttribute("visble",false);
          
 
-
-
         });
         
 
-
     };
-
 
 
     function clickBoton(ruta)
@@ -77,8 +75,7 @@
 
     }
     
-    
- 
+   
   </script>
 
   <!-- Estilos css--> 
@@ -120,7 +117,7 @@
 
   <body>
     <div id="marco" class="marco-busqueda">
-      <img  id="marcoImagen" src="imgs/marco_busqueda.png" height="256" width="256">
+      <img  id="marcoImagen" src="imgs/marco_busqueda_B.png" height="424" width="256">
     </div>
     <div class="buttons">
       <!-- <button class="say-hi-button" onclick="clickBoton('index_saves/index_imgTracking.html')">ImgTracking</button>
