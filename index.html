@@ -143,10 +143,12 @@
          pero necesita un <a-entity-camera> porque si no no renderea nada-->
         <a-marker  emitevents="true" id="marcador" type='pattern' url='imgs/pattern-logo_qr.patt'>
           
+          <!--Debes dejar claro los frames pues lo que no tenga un frame lo elimina
+          y debes de lograr que sean pocas meshes y fucionarlas-->
             <a-entity  id="walker"  gltf-model="#modelo" position="0 0 0" scale="0.02 0.02 0.02" rotation="0 0 0" animation-mixer>
             </a-entity>
                 
-            
+
         </a-marker>
         <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
         <a-entity camera></a-entity>
