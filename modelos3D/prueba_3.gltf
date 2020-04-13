@@ -1,0 +1,188 @@
+{
+    "asset": {
+        "copyright": "(C)2020 Jitzu-01",
+        "generator": "Maya2glTF V0.9.10 b7c0eed",
+        "version": "2.0"
+    },
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "scene": 0,
+    "nodes": [
+        {
+            "children": [
+                1
+            ],
+            "translation": [
+                0.0,
+                9.811119079589844,
+                0.0
+            ],
+            "scale": [
+                19.32852935791016,
+                19.32852935791016,
+                19.32852935791016
+            ],
+            "name": "caja_pantene_escena_02:caja_pantene_escena_01:pCube1"
+        },
+        {
+            "mesh": 0,
+            "name": "caja_pantene_escena_02:caja_pantene_escena_01:polySurface52"
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": 1,
+                        "POSITION": 2,
+                        "TANGENT": 3,
+                        "TEXCOORD_0": 4
+                    },
+                    "indices": 0,
+                    "mode": 4,
+                    "material": 0
+                }
+            ],
+            "name": "caja_pantene_escena_02:caja_pantene_escena_01:polySurface52Shape"
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 84,
+            "max": [
+                55
+            ],
+            "min": [
+                0
+            ],
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 56,
+            "max": [
+                0.9999999403953552,
+                0.9999999403953552,
+                0.9999999403953552
+            ],
+            "min": [
+                -0.9999999403953552,
+                -0.9999999403953552,
+                -0.9999999403953552
+            ],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 672,
+            "componentType": 5126,
+            "count": 56,
+            "max": [
+                0.8449233174324036,
+                0.5,
+                0.5448054671287537
+            ],
+            "min": [
+                -0.8449233174324036,
+                -0.5448055267333984,
+                -0.5448054671287537
+            ],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 56,
+            "max": [
+                0.9999999403953552,
+                2.868162312097411e-7,
+                0.9999999403953552,
+                1.0
+            ],
+            "min": [
+                -0.9999999403953552,
+                -2.662637257344614e-7,
+                -0.9999999403953552,
+                -1.0
+            ],
+            "type": "VEC4"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 56,
+            "max": [
+                0.875,
+                1.0
+            ],
+            "min": [
+                0.125,
+                0.0
+            ],
+            "type": "VEC2"
+        }
+    ],
+    "materials": [
+        {
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.07533632963895798,
+                    0.07533632963895798,
+                    0.07533632963895798,
+                    1.0
+                ],
+                "metallicFactor": 0.0,
+                "roughnessFactor": 1.0
+            },
+            "name": "caja_pantene_escena_02:caja_pantene_escena_01:phong2"
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 2688,
+            "byteLength": 168,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 896,
+            "byteLength": 1344,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 896,
+            "byteStride": 16,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 2240,
+            "byteLength": 448,
+            "byteStride": 8,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 2856,
+            "uri": "prueba_30.bin"
+        }
+    ]
+}
