@@ -60,6 +60,7 @@
       embedded
       arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
     >
+    <!--todos los assets de abajo funcionan, .glb o .gltf-->
     <a-assets>
       <a-asset id="modelo" src="../modelos3D/shampoo_04.glb"></a-asset>
     </a-assets>
@@ -74,13 +75,15 @@
       <!-- on 'url' use the path to the Image Descriptors created before. -->
       <!-- the path should end with the name without the extension e.g. if file is 'pinball.fset' the path should end with 'pinball' -->
       <!-- ../imgs/logo_qr/logo_qr" -->
+      <!--../imgs/solo_pantene/pantene_tracker-->
       <a-nft
         type="nft"
-        url="../imgs/solo_pantene/pantene_tracker"
+        url="../imgs/qr_n_trigger/qr_n_trigger"
         smooth="true"
         smoothCount="10"
         smoothTolerance=".01"
         smoothThreshold="5" 
+        
       >
           <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
           <a-entity id="walker"  gltf-model="#modelo" 
