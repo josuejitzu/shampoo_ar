@@ -23,6 +23,14 @@
       <!-- rawgithack development URL -->
       <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
     </head>
+    <script>
+      AFRAME.registerShader('my-custom', {
+        schema: {
+          color: {type: 'color', is: 'uniform', default: 'red'},
+          opacity: {type: 'number', is: 'uniform', default: 1.0}
+        }
+      });
+    </script>
  
     <!-- style for the loader -->
     <style>
@@ -63,12 +71,10 @@
     <!--todos los assets de abajo funcionan, .glb o .gltf-->
     <a-assets>
       <a-asset id="modelo" src="../modelos3D/shampoo_04.glb"></a-asset>
-    </a-assets>
-    <a-assets>
       <a-asset id="modelo2" src="../modelos3D/shampoo_gltf_04/shampoo_gltf_04.gltf"></a-asset>
-    </a-assets>
-    <a-assets>
-      <a-asset id="modelo3" src="../modelos3D/shampoo_gltf_07.gltf"></a-asset>
+      <a-asset id="modelo3" src="../modelos3D/shampoo_c_02.glb"></a-asset>
+      <a-asset id="modelo4" src="../modelos3D/shampoo_gltf_car_01.gltf"  
+      material="alphaTest:0.5; opacity: 0.3; transparent: true"></a-asset>
     </a-assets>
       <!-- link prueba https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex -->
       <!-- a-nft is the anchor that defines an Image Tracking entity -->
@@ -86,10 +92,13 @@
         
       >
           <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
-          <a-entity id="walker"  gltf-model="#modelo" 
-          scale="3 3 3"
+          <a-entity id="walker" 
+          gltf-model="#modelo4" 
+          material="alphaTest:0.5; opacity: 0.3; transparent: true"
+          scale="4 4 4"
           position="50 150 0"
-          rotation="90 0 0" animation-mixer>
+          rotation="0 0 0" 
+          animation-mixer>
           </a-entity>
           <!-- <a-entity gltf-model="#my-model" animation-mixer="clip: animation-name"></a-entity> -->
 
