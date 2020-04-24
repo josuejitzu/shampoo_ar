@@ -1,0 +1,8 @@
+
+
+FIXME: 
+-Ver como hacer transparentes los materiales
+https://github.com/agusalex/arjs-alphachannel-video/blob/master/index.html
+https://medium.com/@agusalexander8/transparent-video-alpha-channel-on-a-frame-and-ar-js-96a8705465ff
+https://threejs.org/docs/#api/en/materials/MeshStandardMaterial
+https://stackoverflow.com/questions/50323583/display-text-inside-3d-box-using-aframe-aframe-ar

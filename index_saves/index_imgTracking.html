@@ -16,20 +16,17 @@
       <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
      
       <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script> -->
-
+      <!--Esta libreria pisa a la otra no sirve <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script> -->
 
       <script src='https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js'></script>
       <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/cfe5f316/dist/aframe-extras.js"></script>
       <!-- rawgithack development URL -->
       <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
+      
+
     </head>
     <script>
-      AFRAME.registerShader('my-custom', {
-        schema: {
-          color: {type: 'color', is: 'uniform', default: 'red'},
-          opacity: {type: 'number', is: 'uniform', default: 1.0}
-        }
-      });
+      
     </script>
  
     <!-- style for the loader -->
@@ -58,7 +55,10 @@
   <body style="margin : 0px; overflow: hidden;">
     <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
     <div class="arjs-loader">
-      <div>Cargando...</div>
+      <div> 
+        <img  id="marcoImagen" src="../imgs/marco_busqueda.png" height="256" width="256">
+      </div>
+      
     </div>
   
     <!-- a-frame scene -->
@@ -72,9 +72,10 @@
     <a-assets>
       <a-asset id="modelo" src="../modelos3D/shampoo_04.glb"></a-asset>
       <a-asset id="modelo2" src="../modelos3D/shampoo_gltf_04/shampoo_gltf_04.gltf"></a-asset>
-      <a-asset id="modelo3" src="../modelos3D/shampoo_c_02.glb"></a-asset>
-      <a-asset id="modelo4" src="../modelos3D/shampoo_gltf_car_01.gltf"  
-      material="alphaTest:0.5; opacity: 0.3; transparent: true"></a-asset>
+      <a-asset id="modelo3" src="../modelos3D/shampoo_c_03.glb"></a-asset>
+      <a-asset id="modelo4" src="../modelos3D/shampoo_gltf_car_01.gltf"></a-asset>
+      <img id="alphaM" src="../modelos3D/shampoo_01_01/Shampoo01_Botella_MAT_AlbedoTransparency.png">
+  
     </a-assets>
       <!-- link prueba https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex -->
       <!-- a-nft is the anchor that defines an Image Tracking entity -->
@@ -92,9 +93,9 @@
         
       >
           <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
-          <a-entity id="walker" 
-          gltf-model="#modelo4" 
-          material="alphaTest:0.5; opacity: 0.3; transparent: true"
+          <a-entity  id="walker" 
+          gltf-model="#modelo3" 
+          material="opacity:0.5; transparent:true; alphaMap: ../modelos3D/shampoo_01_01/Shampoo01_Botella_MAT_AlbedoTransparency.png"
           scale="4 4 4"
           position="50 150 0"
           rotation="0 0 0" 
