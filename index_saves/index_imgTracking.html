@@ -22,12 +22,13 @@
       <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/cfe5f316/dist/aframe-extras.js"></script>
       <!-- rawgithack development URL -->
       <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
-      
+      <!-- drag script -->
+      <script src="https://unpkg.com/aframe-click-drag-component"></script> 
 
     </head>
     <script>
-      
-    </script>
+      registerAframeClickDragComponent(window.NFT);
+    </script> 
  
     <!-- style for the loader -->
     <style>
@@ -72,7 +73,7 @@
     <a-assets>
       <a-asset id="modelo" src="../modelos3D/shampoo_04.glb"></a-asset>
       <a-asset id="modelo2" src="../modelos3D/shampoo_gltf_04/shampoo_gltf_04.gltf"></a-asset>
-      <a-asset id="modelo3" src="../modelos3D/shampoo_c_03.glb"></a-asset>
+      <a-asset id="modelo3" src="../modelos3D/shampoo_anim_02.glb"></a-asset>
       <a-asset id="modelo4" src="../modelos3D/shampoo_gltf_car_01.gltf"></a-asset>
       <img id="alphaM" src="../modelos3D/shampoo_01_01/Shampoo01_Botella_MAT_AlbedoTransparency.png">
   
@@ -95,6 +96,7 @@
           <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
           <a-entity  id="walker" 
           gltf-model="#modelo3" 
+          click-drag
           material="opacity:0.5; transparent:true; alphaMap: ../modelos3D/shampoo_01_01/Shampoo01_Botella_MAT_AlbedoTransparency.png"
           scale="4 4 4"
           position="50 150 0"
