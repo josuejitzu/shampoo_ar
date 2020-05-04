@@ -32,6 +32,78 @@
     <script>
       //registerAframeClickDragComponent(window.NFT);
 
+      // AFRAME.registerComponent('alpha-test', {
+      //     dependencies: ['material'],
+      //     init: function () {
+      //       this.el.getObject3D('mesh').material.opacity = 0.5;
+      //     }
+      // });
+
+      AFRAME.registerShader('my-custom', {
+        schema: {
+          color: {type: 'color', is: 'uniform', default: 'red'},
+          opacity: {type: 'number', is: 'uniform', default: 1.0}
+        }
+      });
+
+     /* AFRAME.registerComponent("slideshow", {
+        init: function() {
+
+
+              //Referenciar el plano
+              const plano = document.querySelector("#secuencia");
+
+              var imagenes=[];
+              for(i=0;i<=129;i++)
+              {
+                if(i<10)
+                {
+                  imagenes.push("../imgs/Secuencia_de_imagen/Comp 1_00"+i+".png");
+
+                }
+                else if(i>=10 && i < 100)
+                {
+                  imagenes.push("../imgs/Secuencia_de_imagen/Comp 1_0"+i+".png");
+
+                }
+                else if(i>=100)
+                {
+                  imagenes.push("../imgs/Secuencia_de_imagen/Comp 1_"+i+".png");
+
+                }
+
+
+              }
+              //Conseguir incrustar la imagen en el plano
+             // plano.setAttribute("src","../imgs/Secuencia_de_imagen/Comp 1_067.png");
+              plano.setAttribute("src",imagenes[0]);
+
+              var n = 0;
+              //plano.setAttribute("material","src","../imgs/Secuencia_de_imagen/Comp 1_067.png");//otra manera//https://aframe.io/docs/0.4.0/core/entity.html#setattribute-attr-value-componentattrvalue
+              setInterval(function () {
+                plano.setAttribute("src",imagenes[n]);
+                if(n<imagenes.length)
+                {
+                   n++;
+                }else
+                {
+                  n=0;
+                }
+                }, 60);
+             // alert("color"+material.color);
+            
+
+
+        }
+
+        });*/
+
+
+
+
+
+
+
       AFRAME.registerComponent('button', {
             init: function() {
 
@@ -162,21 +234,32 @@
         smoothThreshold="5" 
         button
       >
-        <a-entity 
-        cursor="rayOrigin: mouse" 
-        raycaster="objects: .clickable; useWorldCoordinates: true;">
-       </a-entity> <!-- important for addEventListener('click'). Notice the '.clickable'-->
+            <a-entity 
+            cursor="rayOrigin: mouse" 
+            raycaster="objects: .clickable; useWorldCoordinates: true;">
+          </a-entity> <!-- important for addEventListener('click'). Notice the '.clickable'-->
           <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
           <a-entity  id="walker" 
           class="clickable"
           gltf-model="#modelo3" 
-          click-drag
-        
+          material="shader: my-custom; color: blue; opacity: 0.7; transparent: true"
           scale="3 3 3"
-          position="50 -30 -30"
-          rotation="0 0 0" 
+          position="50 -10 -30"
+          rotation="-90 0 0" 
           animation-mixer>
           </a-entity>
+
+            <!-- src="../imgs/Secuencia_de_imagen/Comp 1_095.png"-->
+           <!-- <a-entity>
+              <a-image 
+                id="secuencia"
+                slideshow
+                material="shader: flat; color: red"
+                color="#CCC" 
+                height="100" width="130"
+                position="50 80 -30">
+              </a-image>
+          </a-entity> -->
           <!-- <a-light type="directional" position="0 50 0" rotation="-60 0 0" target="#directionaltarget">
             <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
          </a-light>
