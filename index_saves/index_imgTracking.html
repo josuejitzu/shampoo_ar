@@ -46,6 +46,16 @@
         }
       });
 
+      AFRAME.registerComponent('foo', 
+      {
+        init: function() {
+            this.el.addEventListener('model-loaded', e => {
+               // document.querySelector("#load").style.visibility= "hidden";
+                document.getElementById("load").style.visibility= "hidden";
+            })
+        }
+      })
+
      /* AFRAME.registerComponent("slideshow", {
         init: function() {
 
@@ -182,11 +192,29 @@
         font-size: 1.25em;
         color: white;
         }
+        .arjs-mi {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+    
+        .arjs-mi div {
+        text-align: center;
+        font-size: 1.25em;
+        color: white;
+        }
     </style>
   
   <body style="margin : 0px; overflow: hidden;">
     <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
-    <div class="arjs-loader">
+    <div id="load" class="arjs-mi">
       <div> 
         <h2>Cargando...</h2>
       </div>
@@ -240,6 +268,7 @@
           <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
           <a-entity  id="walker" 
           class="clickable"
+          foo
           gltf-model="#modelo3" 
           scale="3.5 3.5 3.5"
           position="40 10 -80"
